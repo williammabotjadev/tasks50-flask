@@ -1,0 +1,19 @@
+{% extends "layout.html" %} 
+
+{% block body %} 
+    <form action="/add" method="POST">
+        <input id="task" name="task" type="text" placeholder="Task Name">
+        <input id="submit" type="submit" disabled>
+    </form>
+    <script>
+        var task = document.getElementById("task");
+        var submitBtn = document.getElementById("submit");
+        task.onkeyup = function() {
+            if (task.value === '') {
+                submitBtn.disabled = true;
+            } else {
+                submitBtn.disabled = false;
+            }
+        }
+    </script>
+{% endblock %}
